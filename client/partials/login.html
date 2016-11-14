@@ -1,0 +1,20 @@
+<div>
+  <h2>Login</h2>
+  <form ng-submit='uC.login()'>
+    <input type="text" ng-model='uC.userLogin.email' placeholder="Email">
+    <input type="text" ng-model='uC.userLogin.password' placeholder="password">
+    <input type="submit" value='Login'>
+  </form>
+</div>
+
+<div>
+  <h2>Register</h2>
+  <form ng-submit='uC.register()'>
+    <input type="text" ng-model='uC.newUser.firstName' placeholder="First Name">
+    <input type="text" ng-model='uC.newUser.lastName' placeholder="Last Name">
+    <input type="text" ng-model='uC.newUser.email' placeholder="Email">
+    <input type="text" ng-model='uC.newUser.password' placeholder="Password">
+    <input type="text" ng-model='uC.newUser.confirm' placeholder="Confirm Password">
+    <input type="submit" name="name" value="Register">
+  </form>
+</div>
