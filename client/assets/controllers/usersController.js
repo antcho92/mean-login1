@@ -12,5 +12,6 @@ app.controller('usersController', ['$scope', 'usersFactory', '$location', functi
     uF.login(this.userLogin, function() {
       self.userLogin = '';
     })
-  }
+  };
+  uF.checkSess();
 }]);

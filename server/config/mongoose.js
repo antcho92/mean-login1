@@ -3,7 +3,7 @@ var mongoose = require('mongoose'),
     fs = require('fs');
 
 mongoose.connect('mongodb://localhost/basic_db/users');
-mongoose.Promise = global.Promise
+mongoose.Promise = global.Promise;
 
 var modelsPath = path.join(__dirname, '../models');
 fs.readdirSync(modelsPath).forEach(function(file) {

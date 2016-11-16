@@ -15,7 +15,6 @@ module.exports = (function() {
     },
     create: function(req, res) {
       console.log('register request received');
-      console.log(req.body);
       var userInstance = new User(req.body);
       userInstance.save(function(err, newUser) {
         if (err) {
@@ -35,7 +34,7 @@ module.exports = (function() {
           res.json({errors: 'Invalid email and/or username'});
         } else {
           if (user.validatePassword(req.body.password)) {
-            req.session.user = user
+            req.session.user = user;
             req.session.save();
             res.json({
               '_id': user._id,
@@ -48,6 +47,18 @@ module.exports = (function() {
           }
         }
       })
+    },
+    logout: function(req, res) {
+      console.log(req.session.user);
+      req.session.destroy();
+      res.redirect('/');
+    },
+    checkSess: function(req, res) {
+      if (req.session.user) {
+        res.json(req.session.user)
+      } else {
+        res.send(null);
+      }
     }
   }
 })();

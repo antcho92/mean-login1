@@ -19,6 +19,16 @@ app.factory('usersFactory', ['$http', '$location', function($http, $location) {
         callback();
         $location.url('/dashboard')
       })
+    };
+    this.checkSess =function() {
+      $http.get('/users/checkSess').then(function(data) {
+        if (!data.data) {
+          $location.url('/');
+        } else {
+          console.log(data);
+          $location.url('/dashboard');
+        }
+      })
     }
   }
   console.log(new UsersFactory());
