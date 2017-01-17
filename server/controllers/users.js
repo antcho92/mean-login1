@@ -13,7 +13,7 @@ module.exports = (function() {
         res.json(users);
       })
     },
-    create: function(req, res) {
+    register: function(req, res) {
       console.log('register request received');
       var userInstance = new User(req.body);
       userInstance.save(function(err, newUser) {
